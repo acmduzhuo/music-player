@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妙笔千山音乐播放器-独酌</title>
+    <style>
+        body{
+            margin: 0 auto;
+        }
+        .player{
+            display: flex;
+            /* 开启弹性盒模型 生成xy轴 */
+            justify-content: center;
+            /* 主轴居中 */
+            align-items: center;
+            width: 653px;
+            height: 653px;
+            /* background-color: blue; */
+            margin: 100px auto 100px auto;
+            /* 上左下右 auto自适应居中 即使拖拉*/
+            background-image: url("images/bg_circle.png"),url("images/bg_center.png");
+            background-repeat: no-repeat;
+            /* 不平铺 */
+            background-position: center;
+            /* 背景图片居中定位 */
+        }
+        .btn{
+            display: flex;
+            /* 开启弹性盒模型 生成xy轴 */
+            justify-content: center;
+            /* 主轴居中 */
+            align-items: center;
+            width: 94px;
+            height: 94px;
+            /* background-color: red; */
+            background-image: url("images/btn-bg.png");
+        }
+        .btn-play{
+            width: 29px;
+            height: 36px;
+            /* background-color: royalblue; */
+            background-image: url("images/pause.png");
+        }
+    </style>
+</head>
+<body>
+    <!-- 用户的可视化区域 -->
+    <div class="player">
+        <div class="btn">
+            <div class="btn-play">
+                <audio src="audio/music.mp3"></audio>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementsByClassName("btn-play")[0];
+        var audio = document.getElementById("audio");
+        btn.onclick = function(){
+            if(audio.paused){
+                audio.play();
+                btn.style.backgroundImage = "url(images/play.png)";
+            }else{
+                audio.pause();
+                btn.style.backgroundImage = "url(images/pause.png)";
+            }
+        }
+    </script>
+</body>
+</html>
